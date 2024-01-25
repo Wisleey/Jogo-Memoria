@@ -1,0 +1,221 @@
+/* Estilos globais para todos os elementos */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    max-width: 1000vw;
+}
+
+/* Estilos para o corpo do documento */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    color: #f4511e;
+    background: #0f0e0ee0;
+    display:flow-root;
+    justify-content:center;
+    align-items: center;
+   
+    
+}
+
+/* Container principal para centralizar os elementos */
+.container {
+    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Estilos para o botão do jogo */
+.button {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 28px;
+    padding: 4px;
+    width: 400px;
+    cursor: pointer;
+    margin: 5px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10%;
+}
+
+/* Estilos para a animação do botão */
+.button span {
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: "\00bb";
+    position: absolute;
+    opacity: -40;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* Container principal para o jogo da memória */
+.memory-game {
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 500px;
+    max-width: 500px;
+    margin-top: 20px;
+    justify-content: center; /* Centralizar as colunas */
+}
+
+/* Estilos para as cartas do jogo */
+.card {
+    flex-basis: calc(25% - 20px);
+    height: 0;
+    padding-bottom: calc(25% - 20px);
+    margin: 10px;
+    position: relative;
+    box-shadow: 1px 1px 1px rgb(30, 41, 46);
+    cursor: pointer;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.9s;
+}
+
+.card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+/* Estilos para a frente e o verso das cartas */
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    position: absolute;
+    border-radius: 5px;
+    background: rgb(225, 97, 37);
+    backface-visibility: hidden;
+}
+
+.card-front {
+    transform: rotateY(180deg);
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+/* Estilos específicos para dispositivos móveis com largura máxima de 600px */
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .button {
+        position: static;
+        margin-top: 20px;
+    }
+
+    .memory-game {
+        margin-top: 30px;
+        max-width: 400px;
+    }
+
+    .card {
+        flex-basis: calc(50% - 20px);
+        padding-bottom: calc(50% - 20px);
+    }
+}
+
+/* Estilos específicos para dispositivos móveis com largura máxima de 400px */
+@media (max-width: 800px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .button {
+        margin-top: 10px;
+    }
+}
+.container {
+    text-align: center;
+}
+.memory-game {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    width: 80px; /* Altere a largura desejada */
+    height: 80px; /* Altere a altura desejada */
+  }
+  
+  .card img {
+    width: 100%; /* Faz com que a imagem ocupe todo o espaço disponível */
+    height: auto; /* Mantém a proporção da imagem */
+  
+}
+#timer {
+    margin-top: 20px;
+}
+
+
+  
+ 
+  .button-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 189px;
+    
+  }
+  .container {
+    position: relative;
+    height: 100vh; /* Altere a altura desejada */
+    max-height: calc(100vh - 100px); /* Altura máxima do contêiner antes de habilitar a rolagem */
+    overflow-y: auto; /* Habilita a rolagem vertical */
+  }
+  
+  .memory-game {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-auto-rows: minmax(80px, auto);
+    grid-gap: 20px; /* Espaçamento entre as cartas */
+    justify-content: flex-start; /* Alinha as linhas de cartas à esquerda */
+  }
+  
+  
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Espaçamento interno da carta */
+    border: 1px solid #ccc;
+    width: 120%;
+    height: 120%;
+  }
+  
+  .card img {
+    max-width: 100%;
+    max-height: 100%;
+    
+  }
